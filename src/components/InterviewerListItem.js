@@ -4,14 +4,12 @@ import classNames from "classnames";
 
 
 export default function InterviewerListItem(props) {
-  const interviewerStyle = classNames("interviewers__item", {
+  let interviewerStyle = classNames("interviewers__item", {
     "interviewers_item--selected": props.selected,
-    "interviewers__item": !props.selected
   })
 
-  const imageStyle = classNames("interviewers__item-image", {
+  let imageStyle = classNames("interviewers__item-image", {
     "interviewers__item--selected-image": props.selected,
-    "interviewers__item-image": !props.selected
   })
 
   return (
