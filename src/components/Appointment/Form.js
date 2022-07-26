@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "components/Button.js";
 import InterviewerList from "components/InterviewerList";
-// import { action } from '@storybook/addon-actions/dist/preview';
+import { action } from '@storybook/addon-actions/dist/preview';
 
 export default function Form(props){
   const [currentName, setName] = useState(props.name || "");
@@ -19,7 +19,7 @@ export default function Form(props){
 
 
   return (
-    <main className="appointment__card appointment__card--create">
+  <main className="appointment__card appointment__card--create">
   <section className="appointment__card-left">
     <form autoComplete="off">
       <input
@@ -27,7 +27,8 @@ export default function Form(props){
         name={props.name}
         type="text"
         placeholder={currentName ? currentName: "Please enter your name"}
-     
+        value={currentName}
+        onChange={(event) => setName(event.target.value)}
       />
     </form>
     <InterviewerList 
