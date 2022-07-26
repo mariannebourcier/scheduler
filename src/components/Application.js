@@ -33,7 +33,7 @@ export default function Application(props) {
 
   //bookinterview function
   function bookInterview(id, interview) {
-    console.log(id, interview);
+
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview }
@@ -42,23 +42,37 @@ export default function Application(props) {
       ...state.appointments,
       [id]: appointment
     };
+  //put request
+  return axios.put(`http://localhost:8001/api/appointments/${id}`, {interview:interview})
+  .then(res => {
+    setState({...state, appointments})
+    return res
+  })
+  .catch(err => console.log(err))
+ }
+  
 
-      //save function - unused for now
-  function save(name, interviewer) {
-    const interview = {
-      student: name,
-      interviewer
-    };
-  }
+    //cancel interview
+    function cancelInterview(id) {
+      const appointment = {
+        ...state.appointments[id],
+        interview: null
+      };
+      const appointments = {
+        ...state.appointments,
+        [id]: appointment
+      };
 
-//put request
-   return axios.put(`http://localhost:8001/api/appointments/${id}`, {interview:interview})
-   .then(res => {
-     setState({...state, appointments})
-     return res
-   })
-   .catch(err => console.log(err))
-  }
+      return axios.delete(`http://localhost:8001/api/appointments/${id}`)
+      .then(res => {
+        setState({...state, appointments})
+        return res
+      })
+      .catch(err => console.log(err))
+    }
+ 
+
+
 
 
   const dailyAppointments = getAppointmentsForDay(state, state.day);
@@ -77,6 +91,7 @@ export default function Application(props) {
       interview = {interview}
       interviewers = {interviewers}
       bookInterview = {bookInterview}
+      cancelInterview= {cancelInterview}
     />
     )
   });
@@ -98,6 +113,8 @@ export default function Application(props) {
            days={state.days}
            value={state.day}
            onChange={setDay}
+           bookInterview={bookInterview}
+           cancelInterview={cancelInterview}
         />
         <DayListItem />
         </nav>
@@ -116,6 +133,7 @@ export default function Application(props) {
         key="last"
         time="5pm"
         bookInterview={bookInterview}
+        cancelInterview={cancelInterview}
         />
       </section>
     </main>
