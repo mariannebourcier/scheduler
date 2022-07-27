@@ -48,7 +48,7 @@ export default function Application(props) {
     setState({...state, appointments})
     return res
   })
-  .catch(err => console.log(err))
+  //.catch(err => console.log(err))
  }
   
 
@@ -68,7 +68,7 @@ export default function Application(props) {
         setState({...state, appointments})
         return res
       })
-      .catch(err => console.log(err))
+      //.catch(err => console.log(err))
     }
  
 
