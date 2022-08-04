@@ -10,7 +10,7 @@ export default function Form(props){
 
   const reset = () => {
     setName('')
-    setInterviewer('null')
+    setInterviewer(null)
   }
 
   const cancel = () => {
@@ -27,6 +27,7 @@ export default function Form(props){
       setError("Please select an interviewer");
       return;
     }
+    setError("");
     props.onSave(currentName, currentInterviewer);
   }
 
@@ -38,7 +39,8 @@ export default function Form(props){
         className="appointment__create-input text--semi-bold"
         name={props.name}
         type="text"
-        placeholder={currentName ? currentName: "Enter student name"}
+        placeholder="Enter student name"
+        //placeholder={currentName ? currentName: "Enter student name"}
         data-testid="student-name-input"
         value={currentName}
         onChange={(event) => setName(event.target.value)}
@@ -55,7 +57,7 @@ export default function Form(props){
   <section className="appointment__card-right">
     <section className="appointment__actions">
       <Button danger onClick={cancel}>Cancel</Button>
-      <Button confirm onSubmit={event => event.preventDefault()} onClick={event => validate()}>Save</Button>
+      <Button confirm onSubmit={event => event.preventDefault()} onClick={validate}>Save</Button>
     </section>
   </section>
 </main>
