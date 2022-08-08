@@ -60,14 +60,8 @@ const interview = {
 
 
 export default {
-  
-  put: jest.fn(() => {
-    return Promise.resolve({
-      status: 200,
-      statusText: "OK",
-      data: interview
-    })
-  }),  
+
+ 
 
   get: jest.fn(url => {
     if (url === "/api/days") {
@@ -95,5 +89,21 @@ export default {
         data: fixtures.interviewers
       });
     }
+  }),
+
+  put: jest.fn(() => {
+    return Promise.resolve({
+      status: 200,
+      statusText: "OK",
+      data: interview
+    })
+  }),
+  
+  delete: jest.fn((id) => {
+    return Promise.resolve({
+      status: 200,
+      statusText: "OK",
+      data: null
+    })
   })
 }

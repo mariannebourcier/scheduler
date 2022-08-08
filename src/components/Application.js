@@ -20,12 +20,10 @@ export default function Application(props) {
     } = useApplicationData();
   
   const dailyAppointments = getAppointmentsForDay(state, state.day);
-  //not right
   const interviewers = getAppointmentsForDay(state, state.day);
 
-//
-  const appointment = dailyAppointments.map((appt) => {
 
+  const appointment = dailyAppointments.map((appt) => {
     const interview = getInterview(state, appt.interview);
 
     return (
@@ -39,7 +37,7 @@ export default function Application(props) {
     />
     )
   });
-//
+
 
 
   return (
