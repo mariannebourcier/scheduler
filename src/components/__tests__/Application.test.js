@@ -24,9 +24,6 @@ it ("loads data, books an interview and reduces the spots remaining for Monday b
 
 
   const appointments = getAllByTestId(container, "appointment");
-  //console.log(prettyDOM(appointments));
-
-  //const appointment = getAllByTestId(container, "appointment")[0];
   const appointment = appointments[0];
 
 
@@ -37,7 +34,6 @@ it ("loads data, books an interview and reduces the spots remaining for Monday b
   });
 
   fireEvent.click(getByAltText(appointment, "Sylvia Palmer"));
-
   fireEvent.click(getByText(appointment, "Save"));
 
   expect(getByText(appointment, "Saving")).toBeInTheDocument();
@@ -49,10 +45,9 @@ it ("loads data, books an interview and reduces the spots remaining for Monday b
   const day = getAllByTestId(container, "day").find(day => {
     queryByText(day, "Monday")
     })
-    //console.log(prettyDOM(day));
 
-    expect(getByText(day, "Monday")).toBeInTheDocument();
-    expect(getByText(day, "no spots remaining")).toBeInTheDocument();
+  expect(getByText(day, "Monday")).toBeInTheDocument();
+  expect(getByText(day, "no spots remaining")).toBeInTheDocument();
   
 
   console.log(prettyDOM(appointment));

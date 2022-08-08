@@ -12,21 +12,13 @@ import useApplicationData from "hooks/useApplicationData";
 
 export default function Application(props) {
 
- 
-  
-  
-
-  
-  
-
-    const {
-      state, setDay, bookInterview, cancelInterview
+  const {
+    state,
+    setDay,
+    bookInterview,
+    cancelInterview
     } = useApplicationData();
- 
-
-
-
-
+  
   const dailyAppointments = getAppointmentsForDay(state, state.day);
   //not right
   const interviewers = getAppointmentsForDay(state, state.day);
@@ -34,7 +26,7 @@ export default function Application(props) {
 //
   const appointment = dailyAppointments.map((appt) => {
 
-  const interview = getInterview(state, appointment.interview);
+    const interview = getInterview(state, appt.interview);
 
     return (
       <Appointment
@@ -53,12 +45,11 @@ export default function Application(props) {
   return (
     <main className="layout">
       <section className="sidebar">
-        
           <img
           className="sidebar--centered"
           src="images/logo.png"
           alt="Interview Scheduler"
-        />
+          />
         <hr className="sidebar__separator sidebar--centered" />
         <nav className="sidebar__menu">
         <DayList
@@ -74,18 +65,15 @@ export default function Application(props) {
           className="sidebar__lhl sidebar--centered"
           src="images/lhl.png"
           alt="Lighthouse Labs"
-        />
-        
+        />  
       </section>
       <section className="schedule">
-
        {appointment}
-
         <Appointment
-        key="last"
-        time="5pm"
-        bookInterview={bookInterview}
-        cancelInterview={cancelInterview}
+          key="last"
+          time="5pm"
+          bookInterview={bookInterview}
+          cancelInterview={cancelInterview}
         />
       </section>
     </main>
