@@ -1,6 +1,6 @@
 import React from "react";
 
-import { render, cleanup,  waitForElement, fireEvent, getByText, getByAltText, getAllByTestId, prettyDOM, getByPlaceholderText, queryByText, queryByAltText } from "@testing-library/react";
+import { render, cleanup,  waitForElement, fireEvent, getByText, getByAltText, getAllByTestId, prettyDOM, getByPlaceholderText, queryByText, queryByAltText, queryAllByAltText } from "@testing-library/react";
 
 import Application from "components/Application";
 import axios from "__mocks__/axios";
