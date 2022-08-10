@@ -5,7 +5,7 @@ import DayList from "./DayList";
 import DayListItem from "./DayListItem";
 import InterviewerList from "./InterviewerList";
 import Appointment from "components/Appointment";
-import { getAppointmentsForDay , getInterview , matchAppts } from "helpers/selectors";
+import { getAppointmentsForDay , getInterviewersForDay, getInterview , matchAppts } from "helpers/selectors";
 import useApplicationData from "hooks/useApplicationData";
 
 
@@ -20,7 +20,7 @@ export default function Application(props) {
     } = useApplicationData();
   
   const dailyAppointments = getAppointmentsForDay(state, state.day);
-  const interviewers = getAppointmentsForDay(state, state.day);
+  const interviewers = getInterviewersForDay(state, state.day);
 
 
   const appointment = dailyAppointments.map((appt) => {
@@ -28,12 +28,12 @@ export default function Application(props) {
 
     return (
       <Appointment
-      {...appt}
-      key={appt.id} 
-      interview = {interview}
-      interviewers = {interviewers}
-      bookInterview = {bookInterview}
-      cancelInterview= {cancelInterview}
+        {...appt}
+        key={appt.id} 
+        interview = {interview}
+        interviewers = {interviewers}
+        bookInterview = {bookInterview}
+        cancelInterview= {cancelInterview}
     />
     )
   });
@@ -52,12 +52,12 @@ export default function Application(props) {
         <nav className="sidebar__menu">
         <DayList
            days={state.days}
-           value={state.day}
+           //value={state.day}
+           day={state.day}
            onChange={setDay}
            bookInterview={bookInterview}
            cancelInterview={cancelInterview}
         />
-        <DayListItem />
         </nav>
         <img
           className="sidebar__lhl sidebar--centered"

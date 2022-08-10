@@ -1,6 +1,6 @@
 import React from "react";
 import "components/DayListItem.scss";
-import classNames from "classnames";
+const classNames = require("classnames");
 
 const formatSpots = spots => {
   if (!spots) {
@@ -15,6 +15,7 @@ const formatSpots = spots => {
 }
 
 export default function DayListItem(props) {
+  
   const spotsLeft = formatSpots(props.spots);
 
   const dayClass = classNames("day-list__item", {
