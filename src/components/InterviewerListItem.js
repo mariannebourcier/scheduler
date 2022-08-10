@@ -1,6 +1,6 @@
 import React from "react";
 import "components/InterviewerListItem.scss"; 
-import classNames from "classnames";
+const classNames = require("classnames");
 
 
 export default function InterviewerListItem(props) {
@@ -17,12 +17,12 @@ export default function InterviewerListItem(props) {
      className={interviewerStyle}
      onClick={props.setInterviewer}
      >
-  <img
-    className="interviewers__item-image"
-    src={props.avatar}
-    alt={props.name}
-  />
-  {props.selected && props.name}
-</li>
+    <img
+      className={imageStyle}
+      src={props.avatar}
+      alt={props.name}
+    />
+    {props.selected && props.name}
+    </li>
   )
 }

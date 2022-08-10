@@ -1,6 +1,6 @@
 //appt obj array with id
-const matchAppts = (appointments, id) => {
-  const matched = id.map(id => appointments[id]);
+const matchAppts = (appointments, ids) => {
+  const matched = ids.map(id => appointments[id]);
   return matched;
 }
 
@@ -20,17 +20,19 @@ function getInterview(state, interview) {
     if (!interview) {
       return null;
     }
- const interviewerData = state.interviewers[interview.interviewer];
- return {
-   student: interview.student,
-   interviewer: interviewerData
- }
+
+    const interviewerData = state.interviewers[interview.interviewer];
+    return {
+      student: interview.student,
+      interviewer: interviewerData
+    }
 }
 
 
 function getInterviewersForDay(state, day) {
 
   let interviewersArr = [];
+  
   state.days.map(dayObject => {
     if (dayObject.name === day) {
       dayObject.interviewers.forEach(interviewerId => interviewersArr.push(interviewerId))
