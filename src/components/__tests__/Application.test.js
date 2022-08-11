@@ -20,15 +20,13 @@ import Application from "components/Application";
 //import { describe } from "yargs";
 
 
-beforeEach(() => {
-  jest.resetModules();
-});
 
-afterEach(cleanup);
+
+// afterEach(cleanup);
 
 //axios.defaults.baseURL = "http://localhost:8001";
 
-
+afterEach(cleanup);
 describe("Application", () => {
   let container;
   let day;
@@ -65,7 +63,7 @@ describe("Application", () => {
 
     expect(getByText(day, "no spots remaining")).toBeInTheDocument();
   });
-
+//failing test
   it("loads data, cancels an interview and increases the spots remaining for Monday by 1", async () => {
     const appointment = appointments.find((app) =>
       queryByText(app, "Archie Cohen")
@@ -83,7 +81,7 @@ describe("Application", () => {
 
     expect(getByText(day, "2 spots remaining")).toBeInTheDocument();
   });
-
+//failing test
   it("loads data, edits an interview and keeps the spots remaining for Monday the same", async () => {
     const appointment = appointments.find((app) =>
       queryByText(app, "Archie Cohen")

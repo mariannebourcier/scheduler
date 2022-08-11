@@ -1,10 +1,6 @@
-import { useState, useEffect, useReducer } from "react";
+import { useState, useEffect } from "react";
 import axios from 'axios';
-// import reducer, {
-//   SET_DAY,
-//   SET_APPLICATION_DATA,
-//   SET_INTERVIEW
-// } from "reducers/application";
+
 
 const useApplicationData = () => {
   const [state, setState] = useState({
