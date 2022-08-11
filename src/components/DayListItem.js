@@ -1,7 +1,6 @@
 import React from "react";
 import "components/DayListItem.scss";
-import useApplicationData from "hooks/useApplicationData";
-const classNames = require("classnames");
+import classNames from "classnames";
 
 
 
@@ -14,24 +13,26 @@ const formatSpots = spots => {
     return `${spots} spot remaining`;
   }
 
-  return `${spots} spots remaining`
+  return `${spots} spots remaining`;
 }
 
-export default function DayListItem(props) {
+export default function DayListItem({ name, spots, setDay, selected }) {
 
-  const spotsLeft = formatSpots(props.spots);
+  const spotsLeft = formatSpots(spots);
 
   let dayClass = classNames("day-list__item", {
-    "day-list__item--selected": props.selected,
-    "day-list__item--full": !props.spots
+    "day-list__item--selected": selected,
+    "day-list__item--full": !spots
   })
   return (
     <li 
     className = {dayClass}
-    onClick = {() => props.setDay(props.name)}
+    onClick = {() => {
+      setDay(name);
+    }}
     data-testid="day"
     >
-      <h2 className="text--regular">{props.name}</h2>
+      <h2 className="text--regular">{name}</h2>
       <h3 className="text--light">{spotsLeft}</h3>
     </li>
 

@@ -42,11 +42,10 @@ export default function Form(props){
           className="appointment__create-input text--semi-bold"
           name={props.name}
           type="text"
-          placeholder="Enter student name"
-          //placeholder={currentName ? currentName: "Enter student name"}
-          data-testid="student-name-input"
-          value={currentName}
           onChange={(event) => setName(event.target.value)}
+          value={currentName}
+          placeholder="Enter student name"
+          data-testid="student-name-input"
         />
       <section className="appointment__validation">{error}</section>
       </form>

@@ -17,16 +17,11 @@ describe("Form", () => {
     }
   ];
 
-
-
-
-
-
   it("renders without student name if not provided", () => {
     const { getByPlaceholderText } = render(
       <Form interviewers={interviewers} />
     );
-    expect(getByPlaceholderText("Enter Student Name")).toHaveValue("");
+    expect(getByPlaceholderText("Enter student name")).toHaveValue("");
   });
 
   it("renders with initial student name", () => {
@@ -38,10 +33,8 @@ describe("Form", () => {
 
 
   it("validates that the student name is not blank", () => {
-    /* 1. Create the mock onSave function */
     const onSave = jest.fn();
   
-    /* 2. Render the Form with interviewers and the onSave mock function passed as an onSave prop, the name prop should be blank or undefined */
     const { getByText } = render(
       <Form interviewers={interviewers} onSave={onSave} />
     );
@@ -49,7 +42,7 @@ describe("Form", () => {
     /* 3. Click the save button */
     fireEvent.click(getByText("Save"));
   
-    expect(getByText(/student name cannot be blank/i)).toBeInTheDocument();
+    expect(getByText(/Student name cannot be blank/i)).toBeInTheDocument();
     expect(onSave).not.toHaveBeenCalled();
   });
   
@@ -65,7 +58,7 @@ describe("Form", () => {
     /* 3. Click the save button */
     fireEvent.click(getByText("Save"));
   
-    expect(getByText(/please select an interviewer/i)).toBeInTheDocument();
+    expect(getByText(/Please select an interviewer/i)).toBeInTheDocument();
     expect(onSave).not.toHaveBeenCalled();
   });
 
@@ -80,7 +73,7 @@ describe("Form", () => {
     expect(getByText(/student name cannot be blank/i)).toBeInTheDocument();
     expect(onSave).not.toHaveBeenCalled();
   
-    fireEvent.change(getByPlaceholderText("Enter Student Name"), {
+    fireEvent.change(getByPlaceholderText("Enter student name"), {
       target: { value: "Lydia Miller-Jones" }
     });
   
@@ -105,7 +98,7 @@ describe("Form", () => {
   
     fireEvent.click(getByText("Save"));
   
-    fireEvent.change(getByPlaceholderText("Enter Student Name"), {
+    fireEvent.change(getByPlaceholderText("Enter student name"), {
       target: { value: "Lydia Miller-Jones" }
     });
   
@@ -113,7 +106,7 @@ describe("Form", () => {
   
     expect(queryByText(/student name cannot be blank/i)).toBeNull();
   
-    expect(getByPlaceholderText("Enter Student Name")).toHaveValue("");
+    expect(getByPlaceholderText("Enter student name")).toHaveValue("");
   
     expect(onCancel).toHaveBeenCalledTimes(1);
   });
