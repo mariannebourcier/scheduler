@@ -17,7 +17,7 @@ export default function useApplicationData(props) {
     interviewers: {}
   });
 
-  const setDay = day => dispatch({ type: SET_DAY, day: day});
+  const setDay = day => dispatch({ type: SET_DAY, day: day });
 
   useEffect(() => {
     Promise.all([
