@@ -7,18 +7,18 @@ Interview Scheduler is a single-page application (SPA) that allows users to book
 ## Final Product
 
 !["Screenshot of schedule"]
-()
+(https://github.com/mariannebourcier/scheduler/blob/master/docs/Sched.png?raw=true)
 This screenshot shows the appointment schedule. 
 !["Screenshot of appointment"]
-()
+(https://github.com/mariannebourcier/scheduler/blob/master/docs/Create.png?raw=true)
 This screenshot shows an appointment being created.
 
 !["Screenshot of error"]
-()
+(https://github.com/mariannebourcier/scheduler/blob/master/docs/Error1.png?raw=true)
 This screenshot shows an error when the user does not choose an interviewer.
 
 !["Screenshot of delete"]
-()
+(https://github.com/mariannebourcier/scheduler/blob/master/docs/Confirm.png?raw=true)
 This screenshot shows the deletion confirmation for an appointment.
 
 
