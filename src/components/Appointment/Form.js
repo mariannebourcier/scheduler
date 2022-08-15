@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Button from "components/Button.js";
 import InterviewerList from "components/InterviewerList";
-import { action } from '@storybook/addon-actions/dist/preview';
 
 export default function Form(props){
 
@@ -21,16 +20,17 @@ export default function Form(props){
     props.onCancel()
   }
 
-  function validate() {
+  const validate = () => {
     if (currentName === "") {
       setError("Student name cannot be blank")
       return;
     }
+
     if (currentInterviewer === null) {
       setError("Please select an interviewer");
       return;
     }
-    setError("");
+  
     props.onSave(currentName, currentInterviewer);
   }
 
